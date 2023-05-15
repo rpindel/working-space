@@ -19,9 +19,12 @@ class SendEmailWithAttachments {
         for (currentFile in filesList) {
             def fileCount = 0;
             fileCount++;
-            currentFile.toString();
-            fileString += inputFile.canonicalPath;
-            fileString += ",";
+            // currentFile.toString();
+            fileString += currentFile.canonicalPath;
+            if (fileCount <= 3) {
+                fileString += ",";    
+            }
+        }    
             
             /* 
             Stackoveflow code - Not sure we needed it all with the grep?
