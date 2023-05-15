@@ -19,9 +19,10 @@ class SendEmailWithAttachments {
         for (currentFile in filesList) {
             def fileCount = 0;
             fileCount++;
-            currentFile.toString();  // Looks like this is doing what Line 16 is for in a for-each loop which is what I need?
-            fileString += currentFile.canonicalPath; // Took parts from the for-loop from Stackoverflow and inserted into this for-each loop
+            def inputFile = new File(currentFile.toString());
+            fileString += inputFile.canonicalPath;
             fileString += ",";
+            
             /* 
             Stackoveflow code - Not sure we needed it all with the grep?
                 String filesString = ""
