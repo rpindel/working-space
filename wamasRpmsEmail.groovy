@@ -19,7 +19,7 @@ class SendEmailWithAttachments {
         for (currentFile in filesList) {
             def fileCount = 0;
             fileCount++;
-            def inputFile = new File(currentFile.toString());
+            currentFile.toString();
             fileString += inputFile.canonicalPath;
             fileString += ",";
             
@@ -31,14 +31,6 @@ class SendEmailWithAttachments {
                     if (files.size() > 1 && i < files.size() -1)
                         filesString += ","
             */
-
-            inputFile.eachLine { line -> // Not sure this is needed, guessing it was just part of what you copied?
-                if (line.contains("rows created") || line.contains("row created")) {
-                    successCount++
-                }    
-            }
-        }
-
 
             
         println(msgBody);
