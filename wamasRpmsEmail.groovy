@@ -11,19 +11,16 @@ class SendEmailWithAttachments {
         *mysql-cluster-commercial*,*openjdk*,*ca-certificates*\n"
         "\nThank you.";
         def ant = new AntBuilder();
-        def workingDir = new File("/tmp");
-        
-        workingDir.eachFile() { file -> // What is this doing, looks like it is just casting the file name to string?
-            String fileName = file.getName();
-        }
+        def workingDir = new File("/tmp");     
         
         def filesList = workingDir.listFiles().grep(~/.*LLE_patching_rpms.txt$/);
-        String[] fileString = '';
+        String fileString = "";
 
         for (currentFile in filesList) {
+            def fileCount = 0;
             fileCount++;
-            def inputFile = new File(currentFile.toString());  // Looks like this is doing what Line 16 is for in a for-each loop which is what I need?
-            fileString += f.canonicalPath; // Took parts from the for-loop from Stackoverflow and inserted into this for-each loop
+            currentFile.toString();  // Looks like this is doing what Line 16 is for in a for-each loop which is what I need?
+            fileString += currentFile.canonicalPath; // Took parts from the for-loop from Stackoverflow and inserted into this for-each loop
             fileString += ",";
             /* 
             Stackoveflow code - Not sure we needed it all with the grep?
